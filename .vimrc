@@ -4,18 +4,14 @@ set nocompatible			" Disable compatibility with vi.
 filetype on					" Enable type file detection.
 filetype plugin on			" Enable plugins and load plugin.
 filetype indent on			" Load an indent file for the detected file type.
-
 syntax on					" Turn syntax highlighting on.
 set incsearch				" Highlighting while searching.
 set number					" Add numbers for each line.
-
+set relativenumber			" Show relative line numbers.
 set tabstop=4				" Set tab with to 4 columns.
 set shiftwidth=4			" Set tab with to 4 columns.
-
 set scrolloff=10			" Do net let the cursor scroll bellow or above.
 set mouse=a					" Allow to click with mouse left.
-
-
 set encoding=utf-8
 
 
@@ -25,8 +21,11 @@ call plug#begin()
 	Plug 'preservim/nerdtree'			" Nerdtree
 	Plug 'rakr/vim-one'					" Atom colorscheme
 	Plug 'ryanoasis/vim-devicons'		" Custom icons -> ALWAYS LAST ONE
+	Plug 'davidhalter/jedi-vim'			" Python autocompletion
 
 call plug#end()
+
+let g:jedi#auto_initialization = 1
 
 
 " COLORSCHEME --------------------------------------------------------- >>>
@@ -56,6 +55,12 @@ set background=dark
 endif
 
 let g:airline_theme='one'
+
+
+" NERDTREE ------------------------------------------------------------ >>>
+let NERDTreeShowHidden=1
+let NERDTreeWinSize=25
+
 
 " STATUSBAR ----------------------------------------------------------- >>>
 python3 from powerline.vim import setup as powerline_setup
