@@ -44,10 +44,10 @@ colorscheme one
 let hour = (strftime('%H'))			
 
 " Switch colorscheme depending on time
-if hour >= 19
+if hour >= $TIME_DARK
 set background=dark
 
-elseif hour >= 8
+elseif hour >= $TIME_LIGHT
 set background=light
 
 elseif hour >= 0
