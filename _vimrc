@@ -1,4 +1,3 @@
-
 " GENERAL ------------------------------------------------------------- >>>
 set nocompatible			" Disable compatibility with vi.
 filetype on					" Enable type file detection.
@@ -13,6 +12,8 @@ set shiftwidth=4			" Set tab with to 4 columns.
 set scrolloff=10			" Do net let the cursor scroll bellow or above.
 set mouse=a					" Allow to click with mouse left.
 set encoding=utf-8
+set guifont=CaskaydiaCove_NF:h14
+set linespace=10
 
 
 " PLUGINS ------------------------------------------------------------- >>>
@@ -20,6 +21,10 @@ call plug#begin()
 
 	Plug 'preservim/nerdtree'			" Nerdtree
 	Plug 'rakr/vim-one'					" Atom colorscheme
+"	Plug 'ryanoasis/vim-devicons'		" Custom icons -> ALWAYS LAST ONE
+	Plug 'davidhalter/jedi-vim'			" Python autocompletion
+	Plug 'vim-airline/vim-airline'	    " Status Bar
+	Plug 'vim-airline/vim-airline-themes'
 
 call plug#end()
 
@@ -75,8 +80,16 @@ set guioptions-=m " Menu Bar
 set guioptions-=T " Tool Bar
 set guioptions-=r " Scrollbar
 set guioptions-=L " Nerdtree Scrollbar
+"
+" NERDTREE ------------------------------------------------------------ >>>
+let NERDTreeShowHidden=1
+let NERDTreeWinSize=35
+
+
+" STATUSBAR ----------------------------------------------------------- >>>
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_theme='one'
 
 
 " MAPPING ------------------------------------------------------------- >>>
 nmap <C-t> :NERDTreeToggle<CR>
-
