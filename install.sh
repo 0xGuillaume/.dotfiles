@@ -53,7 +53,6 @@ sudo snap install discord
 sudo dnf install keepass -y
 
 
-
 # >>> Gnome Theme
 
 # > Tela Icons
