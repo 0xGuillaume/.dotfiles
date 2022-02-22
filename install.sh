@@ -5,6 +5,19 @@ export TIME_LIGHT=8
 export TIME_DARK=19
 
 
+# >>> Organize directories
+ln -s ~/Desktop ~/desktop
+ln -s ~/Documents ~/documents
+ln -s ~/Downloads ~/downloads
+ln -s ~/Music ~/music
+ln -s ~/Pictures ~/pictures
+ln -s ~/Templates ~/templates
+ln -s ~/Videos ~/videos
+mkdir ~/dev
+mkdir ~/config
+mkdir ~/documents/school/
+
+
 # >>> Python relative
 sudo dnf install python3 -y
 sudo dnf install python3-venv -y
@@ -55,12 +68,18 @@ sudo dnf install keepass -y
 
 # >>> Gnome Theme
 
+# > Terminal Profile
+# upload le .dconf
+#dconf load /org/gnome/terminal/legacy/profiles:/:b1dcc9dd-5262-4d8d-a863-c897e6d979b9/ < ~/.config/.dconf
+
 # > Tela Icons
-git -C ~/Downloads/ clone https://github.com/vinceliuice/Tela-icon-theme.git 
-sh ~/Downloads/Tela-icon-theme/install.sh
+git -C ~/downloads/ clone https://github.com/vinceliuice/Tela-icon-theme.git 
+sh ~/downloads/Tela-icon-theme/install.sh
 
 # > Dash To Dock
-git -C ~/Downloads/ clone https://github.com/micheleg/dash-to-dock.git
-make -C ~/Downloads/dash-to-dock/
-make -C ~/Downloads/dash-to-dock/ install
+git -C ~/downloads/ clone https://github.com/micheleg/dash-to-dock.git
+make -C ~/downloads/dash-to-dock/
+make -C ~/downloads/dash-to-dock/ install
+
+
 
