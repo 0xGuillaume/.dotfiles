@@ -5,7 +5,8 @@
 To start the installation script run the following command :
 
 ```sh
-curl https://raw.githubusercontent.com/0xGuillaume/.dotfiles/main/install.sh > ~/install.sh && sh ~/install.sh
+curl https://raw.githubusercontent.com/0xGuillaume/.dotfiles/main/install.sh > ~/install.sh \ 
+    && sh ~/install.sh
 ```
 
 
