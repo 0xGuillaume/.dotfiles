@@ -5,6 +5,10 @@ export TIME_LIGHT=8
 export TIME_DARK=19
 
 
+# >>> Snap
+sudo dnf install snapd -y
+
+
 # >>> Organize directories
 ln -s ~/Desktop ~/desktop
 ln -s ~/Documents ~/documents
@@ -14,7 +18,7 @@ ln -s ~/Pictures ~/pictures
 ln -s ~/Templates ~/templates
 ln -s ~/Videos ~/videos
 mkdir ~/dev
-mkdir ~/config
+mkdir ~/.config
 mkdir ~/documents/school/
 
 
@@ -32,18 +36,19 @@ sudo dnf install nodejs -y
 sudo dnf install vim -y
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-wget -P . https://github.com/0xGuillaume/.dotfiles/blob/main/.vimrc
+curl https://raw.githubusercontent.com/0xGuillaume/.dotfiles/main/.vimrc > ~/.vimrc
 vim +'PlugInstall --sync' +qa
 
 
 # >>> Nerd Fonts > Cascadia Code
 $cascadia_path = /usr/share/fonts/cascadia-code
-sudo mkdir $cascadia-code && cd $cascadia_path
+sudo mkdir $cascadia_path && cd $cascadia_path
 wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/CascadiaCode.zip
 unzip *.zip
 find . -name "*Windows*" \#-delete
 rm *.zip
 fc-cache -f -v
+
 
 # >>> Install powerline
 sudo dnf install powerline powerline-fonts -y
@@ -51,9 +56,9 @@ sudo dnf install vim-powerline -y
 
 
 # >>> Docker & RDP
-sudo dnf install dnf-plugins-core
+sudo dnf install dnf-plugins-core -y
 sudo dnf config-manager --add-repo https://download.docker.com/linux/fedora/docker-ce.repo
-sudo dnf install docker-ce docker-ce-cli containerd.io
+sudo dnf install docker-ce docker-ce-cli containerd.io -y
 sudo systemctl enable docker
 sudo snap install remmina -y
 
@@ -66,20 +71,24 @@ sudo snap install discord
 sudo dnf install keepass -y
 
 
-# >>> Gnome Theme
+# >>> Gnome 
 
-# > Terminal Profile
-# upload le .dconf
-#dconf load /org/gnome/terminal/legacy/profiles:/:b1dcc9dd-5262-4d8d-a863-c897e6d979b9/ < ~/.config/.dconf
+# > Gnome Tools
+sudo dnf install gnome-tweak-tool -y
+sudo dnf install gnome-extension-app -y
 
 # > Tela Icons
 git -C ~/downloads/ clone https://github.com/vinceliuice/Tela-icon-theme.git 
 sh ~/downloads/Tela-icon-theme/install.sh
 
-# > Dash To Dock
-git -C ~/downloads/ clone https://github.com/micheleg/dash-to-dock.git
-make -C ~/downloads/dash-to-dock/
-make -C ~/downloads/dash-to-dock/ install
+# > Gnome Terminal
+curl https://raw.githubusercontent.com/0xGuillaume/.dotfiles/main/gnome_terminal/onedark.dconf > ~/.config/onedark.dconf
+dconf load /org/gnome/terminal/legacy/profiles:/:b1dcc9dd-5262-4d8d-a863-c897e6d979b9/ < ~/.config/onedark.dconf
 
+
+
+# >>> Bashrc
+curl https://raw.githubusercontent.com/0xGuillaume/.dotfiles/main/.bashrc > ~/.bashrc
+source ~/.bashrc
 
 
