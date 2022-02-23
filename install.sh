@@ -41,12 +41,11 @@ vim +'PlugInstall --sync' +qa
 
 
 # >>> Nerd Fonts > Cascadia Code
-$cascadia_path = /usr/share/fonts/cascadia-code
-sudo mkdir $cascadia_path && cd $cascadia_path
-wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/CascadiaCode.zip
-unzip *.zip
-find . -name "*Windows*" \#-delete
-rm *.zip
+cd /usr/share/fonts/ && sudo mkdir cascadiacode && cd cascadiacode
+sudo wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/CascadiaCode.zip 
+sudo unzip *.zip
+sudo rm *Windows* *.zip
+cd
 fc-cache -f -v
 
 
