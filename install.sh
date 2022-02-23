@@ -74,7 +74,7 @@ sudo dnf install keepass -y
 
 # > Gnome Tools
 sudo dnf install gnome-tweak-tool -y
-sudo dnf install gnome-extension-app -y
+sudo dnf install gnome-extensions-app -y
 
 # > Tela Icons
 git -C ~/downloads/ clone https://github.com/vinceliuice/Tela-icon-theme.git 
