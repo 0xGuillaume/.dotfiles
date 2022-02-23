@@ -24,6 +24,10 @@ if [ -d ~/.bashrc.d ]; then
 	done
 fi
 
+# ALIAS -------------------------------------------------------------- >>>
+alias ll="ls -al"
+
+
 # POWERLINE ---------------------------------------------------------- >>>
 if [ -f `which powerline-daemon` ]; then
   powerline-daemon -q
