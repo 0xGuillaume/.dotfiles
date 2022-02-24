@@ -17,7 +17,7 @@ ln -s ~/Music ~/music
 ln -s ~/Pictures ~/pictures
 ln -s ~/Templates ~/templates
 ln -s ~/Videos ~/videos
-mkdir ~/dev
+mkdir ~/projects
 mkdir ~/.config
 mkdir ~/documents/school/
 
