@@ -24,7 +24,7 @@ mkdir ~/documents/school/
 
 # >>> Python relative
 sudo dnf install python3 -y
-sudo dnf install python3-venv -y
+sudo dnf install python3-virtualenv -y
 sudo dnf install python3-notebook mathjax sscg -y
 
 
