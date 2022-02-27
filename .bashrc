@@ -26,6 +26,9 @@ fi
 
 # ALIAS -------------------------------------------------------------- >>>
 alias ll="ls -al"
+alias ga="git add"
+alias gc="git commit -m"
+alias gp="git push"
 
 
 # POWERLINE ---------------------------------------------------------- >>>
