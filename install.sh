@@ -62,7 +62,7 @@ sudo dnf install docker-compose -y
 sudo systemctl enable docker
 sudo usermod -aG docker $USER
 newgrp docker
-sudo snap install remmina -y
+sudo snap install remmina
 
 
 # >>> Install Discord
