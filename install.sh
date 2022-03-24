@@ -31,11 +31,15 @@ sudo dnf install python3-notebook mathjax sscg -y
 
 # >>> Terraform
 sudo dnf config-manager --add-repo https://rpm.releases.hashicorp.com/fedora/hashicorp.repo
-sudo dnf -y install terraform
+sudo dnf install terraform -y
 
 
 # >>> NodeJS
 sudo dnf install nodejs -y
+
+
+# >>> Asciidoctor
+sudo dnf install asciidoctor -y
 
 
 # >>> Vim settings
