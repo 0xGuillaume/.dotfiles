@@ -5,8 +5,9 @@ export TIME_LIGHT=8
 export TIME_DARK=19
 
 
-# >>> Snap
+# >>> Snap & Plugins Core
 sudo dnf install snapd -y
+sudo dnf install dnf-plugins-core -y
 
 
 # >>> Organize directories
@@ -26,6 +27,11 @@ mkdir ~/documents/school/
 sudo dnf install python3 -y
 sudo dnf install python3-virtualenv -y
 sudo dnf install python3-notebook mathjax sscg -y
+
+
+# >>> Terraform
+sudo dnf config-manager --add-repo https://rpm.releases.hashicorp.com/fedora/hashicorp.repo
+sudo dnf -y install terraform
 
 
 # >>> NodeJS
@@ -55,7 +61,6 @@ sudo dnf install vim-powerline -y
 
 
 # >>> Docker & RDP
-sudo dnf install dnf-plugins-core -y
 sudo dnf config-manager --add-repo https://download.docker.com/linux/fedora/docker-ce.repo
 sudo dnf install docker-ce docker-ce-cli containerd.io -y
 sudo dnf install docker-compose -y
