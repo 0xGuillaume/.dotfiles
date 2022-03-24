@@ -1,4 +1,5 @@
 📃 Personal dotfiles
+====================
 :toc:
 :toc-placement: preamble
 :toclevels: 1
