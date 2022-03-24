@@ -29,6 +29,10 @@ sudo dnf install python3-virtualenv -y
 sudo dnf install python3-notebook mathjax sscg -y
 
 
+# >>> Azure CLI
+sudo dnf install azure-cli -y
+
+
 # >>> Terraform
 sudo dnf config-manager --add-repo https://rpm.releases.hashicorp.com/fedora/hashicorp.repo
 sudo dnf install terraform -y
