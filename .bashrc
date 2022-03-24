@@ -24,11 +24,14 @@ if [ -d ~/.bashrc.d ]; then
 	done
 fi
 
+
 # ALIAS -------------------------------------------------------------- >>>
 alias ll="ls -al"
 alias ga="git add"
 alias gc="git commit -m"
-alias gp="git push"
+alias gps="git push"
+alias gpl="git pull"
+alias grc="git rm --cached"
 
 
 # POWERLINE ---------------------------------------------------------- >>>
