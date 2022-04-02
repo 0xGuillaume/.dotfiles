@@ -75,3 +75,7 @@ set t_Co=256
 " MAPPING ------------------------------------------------------------- >>>
 nmap <C-t> :NERDTreeToggle<CR>
 
+
+" CUSTOM COMMANDS  ---------------------------------------------------- >>>
+command Light execute "set background=light"
+command Dark execute "set background=dark"
