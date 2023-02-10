@@ -67,6 +67,8 @@ fc-cache -f -v
 sudo dnf install powerline powerline-fonts -y
 sudo dnf install vim-powerline -y
 
+# >>> Install powerline
+sudo dnf install zsh -y
 
 # >>> Docker & RDP
 sudo dnf config-manager --add-repo https://download.docker.com/linux/fedora/docker-ce.repo
