@@ -74,7 +74,9 @@ set t_Co=256
 
 " MAPPING ------------------------------------------------------------- >>>
 nmap <C-t> :NERDTreeToggle<CR>
-nmap <C-l> :Light<CR>
+nmap <C-l> :Light<CR> 
+nmap <C-Right> :bnext<CR>
+nmap <C-Left> :bprev<CR>
 
 
 " CUSTOM COMMANDS  ---------------------------------------------------- >>>

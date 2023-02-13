@@ -94,6 +94,8 @@ let g:airline_theme='one'
 " MAPPING ------------------------------------------------------------- >>>
 nmap <C-t> :NERDTreeToggle<CR>
 nmap <C-l> :Light<CR>
+nmap <C-Right> :bnext<CR>
+nmap <C-Left> :bprev<CR>
 
 
 " CUSTOM COMMANDS  ---------------------------------------------------- >>>
