@@ -45,12 +45,14 @@ endif
 colorscheme one
 
 let hour = (strftime('%H'))			
+let timed = 19
+let timel = 8
 
 " Switch colorscheme depending on time
-if hour >= 19
+if hour >= timed
 set background=dark
 
-elseif hour >= 8
+elseif hour >= timel
 set background=light
 
 elseif hour >= 0
