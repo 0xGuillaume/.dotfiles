@@ -22,6 +22,7 @@ call plug#begin()
 	Plug 'rakr/vim-one'					" Atom colorscheme
 	Plug 'ryanoasis/vim-devicons'		" Custom icons -> ALWAYS LAST ONE
 	Plug 'davidhalter/jedi-vim'			" Python autocompletion
+	Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }					" Go autocompletion
 
 call plug#end()
 
@@ -59,6 +60,16 @@ endif
 let g:airline_theme='one'
 
 
+" GO SYNTAX HIGHLITHING ----------------------------------------------- >>>
+let g:go_highlight_fields = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_function_calls = 1
+let g:go_highlight_extra_types = 1
+let g:go_highlight_operators = 1
+
+au filetype go inoremap <buffer> . .<C-x><C-o>
+
+
 " NERDTREE ------------------------------------------------------------ >>>
 let NERDTreeShowHidden=1
 let NERDTreeWinSize=25
@@ -75,7 +86,7 @@ set t_Co=256
 
 
 " MAPPING ------------------------------------------------------------- >>>
-nmap <C-t> :NERDTreeToggle<CR>
+nmap <C-n> :NERDTreeToggle<CR>
 nmap <C-l> :Light<CR> 
 nmap <C-Right> :bnext<CR>
 nmap <C-Left> :bprev<CR>
