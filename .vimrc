@@ -23,6 +23,7 @@ call plug#begin()
 	Plug 'ryanoasis/vim-devicons'		" Custom icons -> ALWAYS LAST ONE
 	Plug 'davidhalter/jedi-vim'			" Python autocompletion
 	Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }					" Go autocompletion
+	Plug 'hashivim/vim-terraform'
 
 call plug#end()
 
