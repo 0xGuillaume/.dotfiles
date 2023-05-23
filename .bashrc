@@ -27,11 +27,19 @@ fi
 
 # ALIAS -------------------------------------------------------------- >>>
 alias ll="ls -al"
+
+# Git
 alias ga="git add"
 alias gc="git commit -m"
 alias gps="git push"
 alias gpl="git pull"
 alias grc="git rm --cached"
+
+# Terraform
+alias tfi="terraform init"
+alias tfp="terraform plan"
+alias tfa="terraform apply -auto-approve"
+alias tfd="terraform destroy -auto-approve"
 
 
 # POWERLINE ---------------------------------------------------------- >>>
