@@ -41,6 +41,8 @@ alias tfp="terraform plan"
 alias tfa="terraform apply -auto-approve"
 alias tfd="terraform destroy -auto-approve"
 
+# Python
+alias venv="python3 -m venv env"
 
 # POWERLINE ---------------------------------------------------------- >>>
 if [ -f `which powerline-daemon` ]; then
