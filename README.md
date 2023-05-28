@@ -1,13 +1,6 @@
-Personal dotfiles
-====================
-:toc:
-:toc-placement: preamble
-:toclevels: 1
-:showtitle:
+# Personal dotfiles
 
-toc::[]
-
-= Vim
+## Vim
 
 You need to first download https://github.com/junegunn/vim-plug:[vim-plug] in order to use *_vimrc*.
 
