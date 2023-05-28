@@ -1,4 +1,4 @@
-📃 Personal dotfiles
+Personal dotfiles
 ====================
 :toc:
 :toc-placement: preamble
@@ -7,17 +7,7 @@
 
 toc::[]
 
-
-= Linux
-
-To start the installation script run the following command :
-
-```sh
-curl https://raw.githubusercontent.com/0xGuillaume/.dotfiles/main/install.sh > ~/install.sh && sh ~/install.sh
-```
-
-
-= Windows
+= Vim
 
 You need to first download https://github.com/junegunn/vim-plug:[vim-plug] in order to use *_vimrc*.
 
