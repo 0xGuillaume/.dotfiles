@@ -45,6 +45,7 @@ alias venv="python3 -m venv env"
 
 # CLI
 alias ll="exa --icons -l -F -a"
+alias ls="exa"
 alias cat="bat"
 
 # POWERLINE ---------------------------------------------------------- >>>
