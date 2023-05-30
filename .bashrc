@@ -33,7 +33,6 @@ alias gc="git commit -m"
 alias gps="git push"
 alias gpl="git pull"
 alias grc="git rm --cached"
-alias gdn="git diff --name-only"
 
 # Terraform
 alias tfi="terraform init"
