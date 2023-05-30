@@ -26,7 +26,6 @@ fi
 
 
 # ALIAS -------------------------------------------------------------- >>>
-alias ll="ls -al"
 
 # Git
 alias ga="git add"
@@ -44,6 +43,10 @@ alias tfd="terraform destroy -auto-approve"
 
 # Python
 alias venv="python3 -m venv env"
+
+# CLI
+alias ll="exa --icons -l -F -a"
+alias cat="bat"
 
 # POWERLINE ---------------------------------------------------------- >>>
 if [ -f `which powerline-daemon` ]; then
