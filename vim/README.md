@@ -2,4 +2,8 @@
 
 ## Linux
 
+`.vimrc`
+
 ## Windows
+
+`_vimrc`
