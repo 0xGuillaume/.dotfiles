@@ -92,6 +92,9 @@ nmap <C-l> :Light<CR>
 nmap <C-Right> :bnext<CR>
 nmap <C-Left> :bprev<CR>
 
+nmap oo o<ESC>
+nmap OO O<ESC>
+
 
 " CUSTOM COMMANDS  ---------------------------------------------------- >>>
 command Light execute "set background=light"
