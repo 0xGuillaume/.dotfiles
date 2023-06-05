@@ -25,6 +25,8 @@ call plug#begin()
 	Plug 'davidhalter/jedi-vim'			" Python autocompletion
 	Plug 'vim-airline/vim-airline'	    " Status Bar
 	Plug 'vim-airline/vim-airline-themes'
+	Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }					" Go autocompletion
+	Plug 'hashivim/vim-terraform'
 
 call plug#end()
 
@@ -98,6 +100,9 @@ nmap <C-t> :NERDTreeToggle<CR>
 nmap <C-l> :Light<CR>
 nmap <C-Right> :bnext<CR>
 nmap <C-Left> :bprev<CR>
+
+nmap oo o<ESC>
+nmap OO O<ESC>
 
 
 " CUSTOM COMMANDS  ---------------------------------------------------- >>>
