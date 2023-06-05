@@ -24,6 +24,7 @@ call plug#begin()
 	Plug 'davidhalter/jedi-vim'			" Python autocompletion
 	Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }					" Go autocompletion
 	Plug 'hashivim/vim-terraform'
+	Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
 
 call plug#end()
 
