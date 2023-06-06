@@ -28,6 +28,7 @@ call plug#begin()
 	Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }					" Go autocompletion
 	Plug 'hashivim/vim-terraform'
 	Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
+	Plug 'airblade/vim-gitgutter'
 
 call plug#end()
 
