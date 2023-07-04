@@ -33,6 +33,8 @@ alias gc="git commit -m"
 alias gps="git push"
 alias gpl="git pull"
 alias grc="git rm --cached"
+alias gs="git switch"
+alias gb="git branch"
 
 # Terraform
 alias tfi="terraform init"

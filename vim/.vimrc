@@ -91,8 +91,11 @@ set t_Co=256
 " MAPPING ------------------------------------------------------------- >>>
 nmap <C-n> :NERDTreeToggle<CR>
 nmap <C-l> :Light<CR> 
+
+" Windows
 nmap <C-Right> :bnext<CR>
 nmap <C-Left> :bprev<CR>
+nmap <C-+> :vertical resize +1<CR>
 
 nmap oo o<ESC>
 nmap OO O<ESC>
