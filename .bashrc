@@ -41,6 +41,7 @@ alias tfi="terraform init"
 alias tfp="terraform plan"
 alias tfa="terraform apply -auto-approve"
 alias tfd="terraform destroy -auto-approve"
+alias tfo="terraform output --json | jq"
 
 # Python
 alias venv="python3 -m venv env"
