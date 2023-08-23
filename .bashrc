@@ -28,13 +28,15 @@ fi
 # ALIAS -------------------------------------------------------------- >>>
 
 # Git
+alias gf="git fetch"
+alias gb="git branch"
 alias ga="git add"
 alias gc="git commit -m"
 alias gps="git push"
 alias gpl="git pull"
 alias grc="git rm --cached"
-alias gs="git switch"
-alias gb="git branch"
+alias gdf="git diff"
+alias gdff="git diff --name-only"
 
 # Terraform
 alias tfi="terraform init"
