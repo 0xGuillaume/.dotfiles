@@ -1,4 +1,3 @@
-
 " GENERAL ------------------------------------------------------------- >>>
 set nocompatible			" Disable compatibility with vi.
 filetype on					" Enable type file detection.
