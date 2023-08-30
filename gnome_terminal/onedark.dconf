@@ -1,0 +1,24 @@
+[/]
+audible-bell=false
+background-color='rgb(40,44,52)'
+background-transparency-percent=0
+bold-color='rgb(187,115,115)'
+bold-color-same-as-fg=true
+bold-is-bright=false
+cursor-background-color='rgb(164,64,64)'
+cursor-blink-mode='on'
+cursor-colors-set=false
+cursor-shape='block'
+default-size-columns=140
+default-size-rows=30
+font='CaskaydiaCove Nerd Font Mono 14'
+foreground-color='rgb(171,178,191)'
+highlight-colors-set=false
+login-shell=false
+palette=['rgb(40,44,52)', 'rgb(224,108,117)', 'rgb(152,195,121)', 'rgb(229,192,123)', 'rgb(97,175,239)', 'rgb(198,120,221)', 'rgb(86,182,194)', 'rgb(160,161,167)', 'rgb(40,44,52)', 'rgb(190,80,70)', 'rgb(152,195,121)', 'rgb(209,154,102)', 'rgb(97,175,239)', 'rgb(198,120,221)', 'rgb(86,182,194)', 'rgb(160,161,167)']
+title-mode='replace'
+use-custom-command=false
+use-system-font=false
+use-theme-colors=false
+use-transparent-background=false
+visible-name='OneDark'
