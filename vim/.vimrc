@@ -1,17 +1,18 @@
 " GENERAL ------------------------------------------------------------- >>>
 set nocompatible			" Disable compatibility with vi.
-filetype on					" Enable type file detection.
+filetype on				" Enable type file detection.
 filetype plugin on			" Enable plugins and load plugin.
 filetype indent on			" Load an indent file for the detected file type.
-syntax on					" Turn syntax highlighting on.
+syntax on				" Turn syntax highlighting on.
 set incsearch				" Highlighting while searching.
-set number					" Add numbers for each line.
+set number				" Add numbers for each line.
 set relativenumber			" Show relative line numbers.
 set tabstop=4				" Set tab with to 4 columns.
 set shiftwidth=4			" Set tab with to 4 columns.
 set scrolloff=10			" Do net let the cursor scroll bellow or above.
-set mouse=a					" Allow to click with mouse left.
+set mouse=a				" Allow to click with mouse left.
 set encoding=utf-8
+set noswapfile 				" Disable swap files.
 
 
 " PLUGINS ------------------------------------------------------------- >>>
