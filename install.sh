@@ -1,16 +1,20 @@
 #!/bin/bash
 
-# >>> Environment variables
+sudo dnf update -y
+
+# Environment variables
 export TIME_LIGHT=8
 export TIME_DARK=19
 
+# Custom repositories
+sudo dnf config-manager --add-repo https://rpm.releases.hashicorp.com/fedora/hashicorp.repo
+sudo dnf config-manager --add-repo https://download.docker.com/linux/fedora/docker-ce.repo
 
-# >>> Snap & Plugins Core
+# Snap & Plugins Core
 sudo dnf install snapd -y
 sudo dnf install dnf-plugins-core -y
 
-
-# >>> Organize directories
+# Organize directories
 ln -s ~/Desktop ~/desktop
 ln -s ~/Documents ~/documents
 ln -s ~/Downloads ~/downloads
@@ -20,41 +24,40 @@ ln -s ~/Templates ~/templates
 ln -s ~/Videos ~/videos
 mkdir ~/projects
 mkdir ~/.config
-mkdir ~/documents/school/
+
+# Python relative
+
+# Clouds CLI
+sudo dnf install -y asciidoctor
+sudo dnf install -y azure-cli
+sudo dnf install -y bat
+sudo dnf install -y docker-ce docker-ce-cli containerd.io
+sudo dnf install -y docker-compose
+sudo dnf install -y exa
+sudo dnf install -y fish
+sudo dnf install -y gnome-tweak-tool
+sudo dnf install -y gnome-extensions-app
+sudo dnf install -y keepass
+sudo dnf install -y nodejs
+sudo dnf install -y powerline powerline-fonts
+sudo dnf install -y python3
+sudo dnf install -y python3-virtualenv
+sudo dnf install -y python3-notebook mathjax sscg
+sudo dnf install -y terraform
+sudo dnf install -y vim
+sudo dnf install -y vim-powerline
 
 
-# >>> Python relative
-sudo dnf install python3 -y
-sudo dnf install python3-virtualenv -y
-sudo dnf install python3-notebook mathjax sscg -y
+# Npm Packages
+npm install -g tldr
 
-
-# >>> Azure CLI
-sudo dnf install azure-cli -y
-
-
-# >>> Terraform
-sudo dnf config-manager --add-repo https://rpm.releases.hashicorp.com/fedora/hashicorp.repo
-sudo dnf install terraform -y
-
-
-# >>> NodeJS
-sudo dnf install nodejs -y
-
-
-# >>> Asciidoctor
-sudo dnf install asciidoctor -y
-
-
-# >>> Vim settings
-sudo dnf install vim -y
+# Vim settings
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 curl https://raw.githubusercontent.com/0xGuillaume/.dotfiles/main/.vimrc > ~/.vimrc
 vim +'PlugInstall --sync' +qa
 
-
-# >>> Nerd Fonts > Cascadia Code
+# Nerd Fonts > Cascadia Code
 cd /usr/share/fonts/ && sudo mkdir cascadiacode && cd cascadiacode
 sudo wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/CascadiaCode.zip 
 sudo unzip *.zip
@@ -62,50 +65,24 @@ sudo rm *Windows* *.zip
 cd
 fc-cache -f -v
 
-
-# >>> Install powerline
-sudo dnf install powerline powerline-fonts -y
-sudo dnf install vim-powerline -y
-
-# >>> Install powerline
-sudo dnf install zsh -y
-
-# >>> Docker & RDP
-sudo dnf config-manager --add-repo https://download.docker.com/linux/fedora/docker-ce.repo
-sudo dnf install docker-ce docker-ce-cli containerd.io -y
-sudo dnf install docker-compose -y
+# Docker & RDP
 sudo systemctl enable docker
 sudo usermod -aG docker $USER
 newgrp docker
+
+
+# Install Discord
+sudo snap install discord
 sudo snap install remmina
 
-
-# >>> Install Discord
-sudo snap install discord
-
-
-# >>> Install Keepass
-sudo dnf install keepass -y
-
-
-# >>> Gnome 
-
-# > Gnome Tools
-sudo dnf install gnome-tweak-tool -y
-sudo dnf install gnome-extensions-app -y
-
-# > Tela Icons
+# Tela Icons
 git -C ~/downloads/ clone https://github.com/vinceliuice/Tela-icon-theme.git 
 sh ~/downloads/Tela-icon-theme/install.sh
 
-# > Gnome Terminal
+# Gnome Terminal
 curl https://raw.githubusercontent.com/0xGuillaume/.dotfiles/main/gnome_terminal/onedark.dconf > ~/.config/onedark.dconf
 dconf load /org/gnome/terminal/legacy/profiles:/:b1dcc9dd-5262-4d8d-a863-c897e6d979b9/ < ~/.config/onedark.dconf
 
-
-
-# >>> Bashrc
+# Bashrc
 curl https://raw.githubusercontent.com/0xGuillaume/.dotfiles/main/.bashrc > ~/.bashrc
 source ~/.bashrc
-
-
