@@ -1,5 +1,5 @@
 --- 
-- name: "Fedora : Update and repositroy configuration."
+- name: "Fedora : Update and repository configuration."
   hosts:  all
   gather_facts: no
   vars_files: 
