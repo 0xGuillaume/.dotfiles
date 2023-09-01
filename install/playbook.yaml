@@ -1,0 +1,62 @@
+--- 
+- name: "Fedora : Update and repository configuration."
+  hosts:  all
+  gather_facts: no
+  vars_files: 
+    - ./vars/vars.yaml
+  
+  tasks:
+  - name: Update OS packages
+    become: true
+    ansible.builtin.dnf:
+      update_cache: yes
+
+  - name: Add custom repository
+    become: true
+    ansible.builtin.yum_repository:
+      name: "{{ item.name }}"
+      description: "{{ item.description }}"
+      baseurl: "{{ item.baseurl }}"
+      gpgcheck: true
+      gpgkey: "{{ item.gpgkey }}"
+      enabled: true 
+    loop: "{{ yum_repositories }}"
+
+  - name : Creating symbolic links    
+    ansible.builtin.file:
+      src: "~/{{ item }}"
+      dest: "~/{{ item | lower }}"          
+      state: link          
+    loop: "{{ symbolic_links }}"        
+
+  - name: "Creating directories"
+    ansible.builtin.file:
+      path: "{{ item }}"
+      state: directory          
+    loop: "{{ dirs_to_create }}"
+
+  - name: Install rpm packages
+    become: true
+    ansible.builtin.dnf:
+      name: "{{ item }}"
+      state: latest
+    loop: "{{ packages_to_install }}"        
+
+  - name: Enabled docker service
+    become: true
+    ansible.builtin.service:
+      name: docker
+      enabled: true          
+      state: started
+
+  - name: Create docker group
+    ansible.builtin.group:
+      name: docker
+
+  - name: Adding default user to docker group
+    become: true
+    ansible.builtin.user:
+      name: "{{ user.name }}"
+      groups: docker
+      append: yes
+...        
