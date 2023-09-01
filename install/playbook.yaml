@@ -11,7 +11,7 @@
     ansible.builtin.dnf:
       update_cache: yes
 
-  - name: Add custom repository.
+  - name: Add custom repository
     become: true
     ansible.builtin.yum_repository:
       name: "{{ item.name }}"
