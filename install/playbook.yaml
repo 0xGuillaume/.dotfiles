@@ -1,7 +1,9 @@
 --- 
 - name: "Fedora : Update and repositroy configuration."
   hosts:  all
-    #gather_facts: no
+  gather_facts: no
+  vars_files: 
+    - ./vars/vars.yaml
   
   tasks:
   - name: Update OS packages
@@ -9,96 +11,37 @@
     ansible.builtin.dnf:
       update_cache: yes
 
-  - name: Add Hashicorp repository
+  - name: Add custom repository.
     become: true
     ansible.builtin.yum_repository:
-      name: hashicorp 
-      description: Hashcicorp tools repository.  
-      baseurl: https://rpm.releases.hashicorp.com/fedora/$releasever/$basearch/stable
+      name: "{{ item.name }}"
+      description: "{{ item.description }}"
+      baseurl: "{{ item.baseurl }}"
       gpgcheck: true
-      gpgkey: https://rpm.releases.hashicorp.com/gpg 
-      enabled: true
-        
+      gpgkey: "{{ item.gpgkey }}"
+      enabled: true 
+    loop: "{{ yum_repositories }}"
 
-  - name: Add Docker repository
-    become: true
-    ansible.builtin.yum_repository:
-      name: docker 
-      description: Docker repository
-      baseurl: https://download.docker.com/linux/fedora/$releasever/$basearch/stable
-      gpgcheck: true
-      gpgkey: https://download.docker.com/linux/fedora/gpg 
-      enabled: true
-        
-
-- name: "Fedora : Setting user configuration."          
-  hosts: all
-  
-  tasks:
   - name : Creating symbolic links    
     ansible.builtin.file:
-      src: "~/{{ item.src }}"
-      dest: "~/{{ item.dest }}"          
+      src: "~/{{ item }}"
+      dest: "~/{{ item | lower }}"          
       state: link          
-    with_items:
-      - { src: "Desktop", dest: "desktop" } 
-      - { src: "Documents", dest: "documents" } 
-      - { src: "Downloads", dest: "downloads" } 
-      - { src: "Music", dest: "music" } 
-      - { src: "Pictures", dest: "pictures" } 
-      - { src: "Templates", dest: "templates" } 
-      - { src: "Videos", dest: "videos" } 
+    loop: "{{ symbolic_links }}"        
 
   - name: "Creating directories"
     ansible.builtin.file:
-      path: "{{ item.directory }}"
+      path: "{{ item }}"
       state: directory          
-    with_items:
-      - directory: "~/projects"        
-      - directory: "~/.config"
+    loop: "{{ dirs_to_create }}"
 
-- name: "Fedora : Install packages"
-  hosts: all
-
-  tasks:
   - name: Install rpm packages
     become: true
     ansible.builtin.dnf:
-      name:
-        - asciidoctor
-        - azure-cli
-        - bat
-        - dnf-plugins-core
-        - docker-ce 
-        - docker-ce-cli 
-        - containerd.io
-        - docker-compose
-        - exa
-        - fish
-        - feh
-        - gnome-tweak-tool
-        - gnome-extensions-app
-        - golang
-        - i3
-        - keepassxc
-        - nodejs
-        - powerline 
-        - powerline-fonts
-        - python3
-        - python3-virtualenv
-        - python3-notebook 
-        - mathjax 
-        - sscg
-        - terraform
-        - tldr
-        - vim
-        - vim-powerline
+      name: "{{ item }}"
       state: latest
+    loop: "{{ packages_to_install }}"        
 
-- name: Docker Setup          
-  hosts: all
-
-  tasks:
   - name: Enabled docker service
     become: true
     ansible.builtin.service:
@@ -113,7 +56,7 @@
   - name: Adding default user to docker group
     become: true
     ansible.builtin.user:
-      name: salvor
+      name: "{{ user.name }}"
       groups: docker
       append: yes
-
+...        
