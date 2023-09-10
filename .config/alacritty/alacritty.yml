@@ -1,6 +1,9 @@
 env:
   XTERM: xterm-256color
 
+shell:
+  program: /bin/fish
+
 window:
   opacity: 1
   decorations: "none"
@@ -8,15 +11,24 @@ window:
     columns: 200
     lines: 100
   padding:
-    x: 16
-    y: 16
+    x: 18
+    y: 18
 
 font:
   size: 18.0
+  ofset:
+    x: 1
+    y: 0
 
-color:
-  background: "#faf9e6"
-  foreground: "#1f1914"
+colors:
+  primary:
+    background: "#000000"
+    foreground: "#d5d7c1"
+      #background: "#1f1914"
+      #foreground: "#faf9e6"
+      #background: "#faf9e6"
+      #background: "#faf9e6"
+      #foreground: "#1f1914"
 
     #normal:
     #   black:   '#3f3f3f'
