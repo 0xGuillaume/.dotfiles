@@ -7,13 +7,22 @@
 #
 # To get a config file with the same key positions, but for your current
 # layout, use the i3-config-wizard
-#
+
+# Custom
+# =================================================
 
 # Set mod to Alt key
 set $mod Alt
 
 # Default term
 set $term alacritty
+
+# Remove container border
+default_border pixel 0
+default_floating_border pixel 0
+
+
+# =================================================
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
