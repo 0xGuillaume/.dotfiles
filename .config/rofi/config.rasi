@@ -1,9 +1,25 @@
+* {
+	background: #FAF9E6;
+	foreground: #1F1914;
+	
+}
+
 configuration {
   modes: [ combi ];
   combi-modes: [ window, drun, run ];
 }
 
-@theme "gruvbox-light"
 entry {
     placeholder: "Application to start";
+}
+
+element-text {
+	color: var(foreground);
+}
+
+window {
+	border: 0;
+	border-radius: 0 30px 0 30px;
+	padding: 16px;
+	background-color: var(background);
 }
