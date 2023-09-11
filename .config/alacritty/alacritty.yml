@@ -15,6 +15,9 @@ window:
     y: 18
 
 font:
+  normal:
+    family: "CaskaydiaCove Nerd Font"
+    style: Regular
   size: 18.0
   ofset:
     x: 1
