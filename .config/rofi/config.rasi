@@ -1,0 +1,9 @@
+configuration {
+  modes: [ combi ];
+  combi-modes: [ window, drun, run ];
+}
+
+@theme "gruvbox-light"
+entry {
+    placeholder: "Application to start";
+}
