@@ -17,12 +17,12 @@ window:
 font:
   normal:
     #family: "CaskaydiaCove Nerd Font"
-    family: "CaskaydiaCove Nerd Font"
-    style: Regular
+    family: "SpaceMono Nerd Font"
+    style: Medium
   size: 16.0
-  ofset:
-    x: 1
-    y: 0
+  offset:
+    x: 0
+    y: -5
 
 colors:
   primary:
