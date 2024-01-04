@@ -114,3 +114,12 @@ nmap Y y$
 command Light execute "set background=light"
 command Dark execute "set background=dark"
 autocmd BufWrite *.py :call DeleteTrailingWhitespaces()
+
+
+" FILES CREATION  ----------------------------------------------------- >>>
+autocmd BufNewFile *.bash 0r ~/projects/.dotfiles/.vim/skeleton.bash
+autocmd BufNewFile *.fish 0r ~/projects/.dotfiles/.vim/skeleton.fish
+autocmd BufNewFile *.html 0r ~/projects/.dotfiles/.vim/skeleton.html
+autocmd BufNewFile *.py 0r ~/projects/.dotfiles/.vim/skeleton.py
+autocmd BufNewFile *.toml 0r ~/projects/.dotfiles/.vim/skeleton.toml
+autocmd BufNewFile *.yaml 0r ~/projects/.dotfiles/.vim/skeleton.yaml
