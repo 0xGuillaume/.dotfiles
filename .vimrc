@@ -106,6 +106,7 @@ nmap <C-+> :vertical resize +1<CR>
 
 nmap oo o<ESC>
 nmap OO O<ESC>
+nmap Y y$
 
 
 " CUSTOM COMMANDS  ---------------------------------------------------- >>>
