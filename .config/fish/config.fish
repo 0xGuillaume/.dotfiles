@@ -5,6 +5,9 @@ end
 function fish_greeting
 end
 
+set PATH /usr/local/bin /usr/sbin $PATH
+#set -gx COLORTERM truecolor
+
 # Aliases
 
 ## Commun
