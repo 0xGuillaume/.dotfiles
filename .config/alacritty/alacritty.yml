@@ -1,6 +1,3 @@
-env:
-  XTERM: xterm-256color
-
 shell:
   program: /bin/fish
 
@@ -16,13 +13,13 @@ window:
 
 font:
   normal:
-    #family: "CaskaydiaCove Nerd Font"
-    family: "SpaceMono Nerd Font"
+    family: "CaskaydiaCove Nerd Font"
+    #family: "SpaceMono Nerd Font"
     style: Medium
-  size: 16.0
+  size: 14.0
   offset:
     x: 0
-    y: -5
+    y: 0
 
 colors:
   primary:
@@ -35,11 +32,11 @@ colors:
       #foreground: "#1f1914"
 
     normal:
-    #   black:   '#3f3f3f'
-    #   red:     "#b06060"
-    #   green:   '#60b47a'
-    #   yellow:  '#dfaf8f'
-    #   blue:    '#506080'
-    #   magenta: '#dc9cc3'
-    #   cyan:    '#8cd0d8'
-    #   white:   '#ffffff'
+      #black:   '#3f3f3f'
+      #red:     "#b06060"
+      #green:   '#60b47a'
+      #yellow:  '#dfaf8f'
+      #blue:    '#506080'
+      #magenta: '#dc9cc3'
+      #cyan:    '#8cd0d8'
+      #white:   '#ffffff'
