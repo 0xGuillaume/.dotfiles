@@ -14,6 +14,8 @@ set PATH /usr/local/bin /usr/sbin $PATH
 alias ls="exa"
 alias ll="exa --icons -l -F -a"
 alias cat="bat"
+alias vi="nvim"
+alias vim="nvim"
 
 ## Git
 alias gf="git fetch"
