@@ -1,0 +1,22 @@
+#!/usr/bin/fish
+# Ensure tmux is running
+set target $(find ~ ~/projects -mindepth 1 -maxdepth 1 -type d | fzf)
+
+set selected_name $(basename "$target" | tr . _)
+set tmux_running $(pgrep tmux)
+
+if test -z $TMUX; test -z $tmux_running
+    tmux new-session -s $selected_name -c $selected
+    exit 0
+end
+
+
+# Create new session based on fzf selected directory
+set session $(find ~ ~/projects -mindepth 1 -maxdepth 1 -type d | fzf)
+set session_name $(basename "$session" | tr . _)
+
+if not tmux has-session -t "$session_name" 2> /dev/null
+    tmux new-session -s "$session_name" -c "$session" -d
+end
+
+tmux switch-client -t "$session_name"
