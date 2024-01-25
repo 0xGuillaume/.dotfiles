@@ -10,6 +10,7 @@ set PATH /usr/local/bin /usr/sbin ~/bin $PATH
 
 # Bindkeys
 bind \cf 'tmux-sessionizer'
+bind \cs 'cht.sh'
 
 
 # Aliases
