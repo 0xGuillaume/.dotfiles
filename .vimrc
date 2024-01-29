@@ -20,7 +20,6 @@ set shell=/bin/fish
 " PLUGINS ------------------------------------------------------------- >>>
 call plug#begin()
 
-	Plug 'preservim/nerdtree'			" Nerdtree
 	Plug 'rakr/vim-one'					" Atom colorscheme
 	Plug 'ryanoasis/vim-devicons'		" Custom icons -> ALWAYS LAST ONE
 	Plug 'davidhalter/jedi-vim'			" Python autocompletion
@@ -28,6 +27,8 @@ call plug#begin()
 	Plug 'hashivim/vim-terraform'
 	Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
 	Plug 'airblade/vim-gitgutter'
+	Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+	Plug 'junegunn/fzf.vim'
 
 call plug#end()
 
@@ -111,6 +112,13 @@ nmap Y y$
 
 
 " CUSTOM COMMANDS  ---------------------------------------------------- >>>
+let mapleader=" "
+nmap <leader>e :Explore<Esc>
+
+nmap <leader>ff :Files<Esc>
+nmap <leader>fg :GFiles<Esc>
+
+
 command Light execute "set background=light"
 command Dark execute "set background=dark"
 autocmd BufWrite *.py :call DeleteTrailingWhitespaces()
