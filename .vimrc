@@ -15,6 +15,7 @@ set encoding=utf-8
 set ff=unix
 set noswapfile 				" Disable swap files.
 set shell=/bin/fish
+set term=screen-256color
 
 
 " PLUGINS ------------------------------------------------------------- >>>
@@ -46,6 +47,7 @@ if (empty($TMUX))
 endif
 
 colorscheme one
+set termguicolors
 
 let hour = (strftime('%H'))			
 let timed = 19
