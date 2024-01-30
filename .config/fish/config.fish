@@ -16,8 +16,8 @@ bind \cs 'cht.sh'
 # Aliases
 
 ## Commun
-alias ls="exa"
-alias ll="exa --icons -l -F -a"
+alias ls="eza"
+alias ll="eza --icons -l -F -a"
 alias cat="bat"
 alias vi="nvim"
 alias vim="nvim"
