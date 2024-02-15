@@ -44,3 +44,4 @@ alias tfo="terraform output --json | jq"
 alias venv="python3 -m venv env"
 
 starship init fish | source
+zoxide init fish | source
