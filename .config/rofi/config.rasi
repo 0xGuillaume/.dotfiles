@@ -1,7 +1,8 @@
 * {
 	background: #FAF9E6;
 	foreground: #1F1914;
-	
+	active-bg: #000;
+	active-fg: #FAF9E6;
 }
 
 configuration {
@@ -10,7 +11,7 @@ configuration {
 }
 
 entry {
-    placeholder: "Application to start";
+    placeholder: "Applications";
 }
 
 element-text {
@@ -22,4 +23,16 @@ window {
 	border-radius: 0 30px 0 30px;
 	padding: 16px;
 	background-color: var(background);
+}
+
+// Same bg for all lines
+element alternate normal {
+	background-color: var(background);
+	text-color: var(foreground);
+}
+
+// Selected line
+element.selected.normal {
+	background-color: var(active-bg);
+	foreground: #ffffff;  // var(active-fg);
 }
