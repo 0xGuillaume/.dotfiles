@@ -21,6 +21,9 @@ set $term alacritty
 default_border pixel 0
 default_floating_border pixel 0
 
+# Gaps
+smart_gaps on
+gaps inner 16
 
 # =================================================
 
