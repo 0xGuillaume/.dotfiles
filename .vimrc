@@ -1,135 +1,176 @@
-" GENERAL ------------------------------------------------------------- >>>
-set nocompatible			" Disable compatibility with vi.
-filetype on				" Enable type file detection.
-filetype plugin on			" Enable plugins and load plugin.
-filetype indent on			" Load an indent file for the detected file type.
-syntax on				" Turn syntax highlighting on.
-set incsearch				" Highlighting while searching.
-set number				" Add numbers for each line.
-set relativenumber			" Show relative line numbers.
-set tabstop=4				" Set tab with to 4 columns.
-set shiftwidth=4			" Set tab with to 4 columns.
-set scrolloff=10			" Do net let the cursor scroll bellow or above.
-set mouse=a				" Allow to click with mouse left.
-set encoding=utf-8
-set ff=unix
-set noswapfile 				" Disable swap files.
-set shell=/bin/fish
-set term=screen-256color
+" ===============[ SETTINGS ]===============
 
+    " Setting the character encoding of Vim to UTF-8.
+    set encoding=utf-8
 
-" PLUGINS ------------------------------------------------------------- >>>
-call plug#begin()
+    " Setting the default shell.
+    set shell=/bin/fish
 
-	Plug 'rakr/vim-one'					" Atom colorscheme
-	Plug 'ryanoasis/vim-devicons'		" Custom icons -> ALWAYS LAST ONE
-	Plug 'davidhalter/jedi-vim'			" Python autocompletion
-	Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }					" Go autocompletion
-	Plug 'hashivim/vim-terraform'
-	Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
-	Plug 'airblade/vim-gitgutter'
-	Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-	Plug 'junegunn/fzf.vim'
+    " Disable compatibility with vi which can cause unexpected issues.
+    set nocompatible
 
-call plug#end()
+    " Enable type file detection. Vim will be able to try to detect the type of file is use.
+    filetype on
 
-let g:jedi#auto_initialization = 1
+    " Enable plugins and load plugin for the detected file type.
+    filetype plugin on
 
+    " Load an indent file for the detected file type.
+    filetype indent on
 
-" COLORSCHEME --------------------------------------------------------- >>>
-if (empty($TMUX))
-  if (has("nvim"))
-    let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-  endif
+    " Turn syntax highlighting on.
+    syntax on
 
-  if (has("termguicolors"))
+    " Add numbers to the file.
+    set number
+
+    " Add relativenumbers to the file. 
+    set relativenumber
+
+    " Convert tabs to spaces.
+    set expandtab
+
+    " Set tabstop to 4 spaces.
+    set tabstop=4
+
+    " Set shiftwidth to 4 columns.
+    set shiftwidth=4
+
+    "set backspace=indent
+
+    " Configuring cursor shape.
+    set guicursor=""
+  
+    " Needed to get color as expected with catppuccin colorscheme.
     set termguicolors
-  endif
-endif
+    " Enable the use of the mouse inside vim.
+    set mouse=a
+    " Scroll limit (at the end of a file) to 10.
+    set scrolloff=10
+    " Set number column width to 4.
+    set numberwidth=4
 
-colorscheme one
-set termguicolors
+    " Set an additionnal space on the number's left side.
+    set signcolumn=yes
+    
+    " Set the commands to save in history default number is 20.
+    set history=1000
 
-let hour = (strftime('%H'))			
-let timed = 19
-let timel = 8
+    " While searching though a file incrementally highlight matching characters as you type.
+    set incsearch
+    set hlsearch
 
-" Switch colorscheme depending on time
-if hour >= timed
-set background=dark
+    " Ignore capital letters during search.
+    set ignorecase
 
-elseif hour >= timel
-set background=light
+    "set wildmenu
 
-elseif hour >= 0
-set background=dark
-endif
+    " Disable swap files.
+    set noswapfile
 
-let g:airline_theme='one'
+    " Do not save backup files.
+    set nobackup
+    set nowritebackup
 
+    " Enable status line.
+    set laststatus=2
 
-" GO SYNTAX HIGHLITHING ----------------------------------------------- >>>
-let g:go_highlight_fields = 1
-let g:go_highlight_functions = 1
-let g:go_highlight_function_calls = 1
-let g:go_highlight_extra_types = 1
-let g:go_highlight_operators = 1
+    " Enable tabs line (buffer level).
+    set showtabline=2
 
-au filetype go inoremap <buffer> . .<C-x><C-o>
+    " If Vim version is equal to or greater than 7.3 enable undo file.
+    " This allows you to undo changes to a file even after saving it.
+    if version >= 703
+        set undodir=~/.vim/backup
+        set undofile
+        set undoreload=10000
+    endif
 
+    " File browsing settings (:Explore)
+    let g:netrw_banner=0
+    let g:netrw_liststyle=3
+    let g:netrw_showhide=1
+    let g:netrw_windowsize=19
 
-" NERDTREE ------------------------------------------------------------ >>>
-let NERDTreeShowHidden=1
-let NERDTreeWinSize=25
+    " Auto Completion - Enable Omni complete features
+    set omnifunc=syntaxcomplete#Complete
+    set complete+=k
+    set completeopt=menu,menuone,noinsert
 
-
-" STATUSBAR ----------------------------------------------------------- >>>
-python3 from powerline.vim import setup as powerline_setup
-python3 powerline_setup()
-python3 del powerline_setup
-set laststatus=2 " Always display the statusline in all windows
-set showtabline=2 " Always display the tabline, even if there is only one tab
-set noshowmode " Hide the default mode text (e.g. -- INSERT -- below the statusline)
-set t_Co=256
-
-" FUNCTIONS ----------------------------------------------------------- >>>
-func! DeleteTrailingWhitespaces()
-  exe "normal mz"
-  %s/\s\+$//ge
-  exe "normal `z"
-endfunc
-
-" MAPPING ------------------------------------------------------------- >>>
-nmap <C-n> :NERDTreeToggle<CR>
-nmap <C-l> :Light<CR> 
-
-" Windows
-nmap <C-Right> :bnext<CR>
-nmap <C-Left> :bprev<CR>
-nmap <C-+> :vertical resize +1<CR>
-
-nmap oo o<ESC>
-nmap OO O<ESC>
-nmap Y y$
+    " Custom indentations with 2 spaces (Terraform, YAML, HTML)
+    autocmd Filetype tf setlocal tabstop=2 shiftwidth=2 expandtab
+    autocmd Filetype yaml setlocal tabstop=2 shiftwidth=2 expandtab
+    autocmd Filetype html setlocal tabstop=2 shiftwidth=2 expandtab
 
 
-" CUSTOM COMMANDS  ---------------------------------------------------- >>>
-let mapleader=" "
-nmap <leader>e :Explore<Esc>
+" ===============[ PLUGINS ]===============
+    call plug#begin()
 
-nmap <leader>ff :Files<Esc>
-nmap <leader>fg :GFiles<Esc>
+        " A fuzzy finder similar to Telescope (neovim).
+        Plug 'junegunn/fzf.vim'
+
+        " A bunch of colorschemes.
+        Plug 'catppuccin/vim', { 'as': 'catppuccin' }
+
+        " A custom airline style.
+        Plug 'vim-airline/vim-airline'
+
+    call plug#end()
 
 
-command Light execute "set background=light"
-command Dark execute "set background=dark"
-autocmd BufWrite *.py :call DeleteTrailingWhitespaces()
+    " Empty value to disable preview window altogether
+    let g:fzf_vim = {}
+    let g:fzf_vim.preview_window = []
 
 
-" FILES CREATION  ----------------------------------------------------- >>>
-autocmd BufNewFile *.bash 0r ~/projects/.dotfiles/.vim/skeleton.bash
-autocmd BufNewFile *.fish 0r ~/projects/.dotfiles/.vim/skeleton.fish
-autocmd BufNewFile *.html 0r ~/projects/.dotfiles/.vim/skeleton.html
-autocmd BufNewFile *.py 0r ~/projects/.dotfiles/.vim/skeleton.py
-autocmd BufNewFile *.toml 0r ~/projects/.dotfiles/.vim/skeleton.toml
-autocmd BufNewFile *.yaml 0r ~/projects/.dotfiles/.vim/skeleton.yaml
+" ===============[ COLORSCHEME ]===============
+
+    " Set airline theme to catppuccin.
+    let g:lightline = {'colorscheme': 'catppuccin_mocha'}
+    let g:airline_theme = 'catppuccin_mocha'
+
+    " Set colorscheme to catppuccin.
+    colorscheme catppuccin_mocha
+
+
+" ===============[ KEYBINDINGS ]===============
+
+    " Set <space> as the leader key.
+    let mapleader=" "
+    
+    " Opening the file explorer.
+    nmap <leader>e :Explore<Esc>
+
+    " Type oo to insert a blank line below. 
+    nmap oo o<ESC>
+
+    " Type oo to insert a blank line above. 
+    nmap OO O<ESC>
+
+    " Type Y to yank from cursor to the end of a line.
+    nmap Y y$
+
+    nmap <leader>d :bd<Esc>
+
+    " Navigate the split view easier by pressing:
+    " CTRL+j, CTRL+k, CTRL+h, or CTRL+l.
+	nnoremap <c-j> <c-w>j
+	nnoremap <c-k> <c-w>k
+	nnoremap <c-h> <c-w>h
+	nnoremap <c-l> <c-w>l
+
+    " Resize split windows using arrow keys by pressing:
+    " CTRL+UP, CTRL+DOWN, CTRL+LEFT, or CTRL+RIGHT.
+	noremap <c-up> <c-w>+
+	noremap <c-down> <c-w>-
+	noremap <c-left> <c-w>>
+	noremap <c-right> <c-w><
+
+    " Open fuzzy finder to navigate through files and git files.
+    nmap <leader>ff :Files<Esc>
+    nmap <leader>fg :GitFiles<Esc>
+
+
+" =====================================================================
+" Some of the settings and keybinding are inspired from:
+" https://github.com/YanivZalach/Vim_Config_NO_PLUGINS/blob/main/.vimrc
